@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jellyfin.Sdk" Version="10.8.0" />
-    <PackageReference Include="MediaBrowser.Common" Version="10.8.0" />
-    <PackageReference Include="MediaBrowser.Controller" Version="10.8.0" />
-    <PackageReference Include="MediaBrowser.Model" Version="10.8.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+    <!-- Match your server’s major/minor; floating patch is fine -->
+    <PackageReference Include="Jellyfin.Sdk" Version="2025.8.15-unstable.202508150050" />
+    <PackageReference Include="MediaBrowser.Common" Version="4.9.1.13-beta" />
+    <PackageReference Include="MediaBrowser.Server.Core" Version="4.9.1.13-beta" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.8" />
   </ItemGroup>
 </Project>

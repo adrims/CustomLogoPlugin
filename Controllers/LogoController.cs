@@ -2,11 +2,12 @@ using MediaBrowser.Controller.Net;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Threading.Tasks;
+using MediaBrowser.Controller.Api;
 
 namespace CustomLogoPlugin.Controllers
 {
     [Route("customlogo")]
-    public class LogoController : BaseApiController
+    public class LogoController : ControllerBase
     {
         [HttpPost("upload")]
         public async Task<IActionResult> UploadLogo()
@@ -15,7 +16,7 @@ namespace CustomLogoPlugin.Controllers
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded.");
 
-            var path = Path.Combine(Plugin.Instance.ConfigurationManager.ApplicationPaths.ConfigurationDirectoryPath, "customlogo.png");
+            var path = Path.Combine(Plugin.Instance.ApplicationPaths.ConfigurationDirectoryPath, "customlogo.png");
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
